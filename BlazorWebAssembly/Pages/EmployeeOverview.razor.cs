@@ -1,4 +1,5 @@
 ﻿using Blazor.Domain;
+using BlazorWebAssembly.Services;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,7 @@ namespace BlazorWebAssembly.Pages
 	public partial class EmployeeOverview : ComponentBase
 	{
 		[Inject]
-		public HttpClient HttpClient { get; set; }
-
+		public IEmployeeDataService EmployeeDataService { get; set; }
 
 		protected override Task OnInitializedAsync()
 		{
@@ -108,7 +108,7 @@ namespace BlazorWebAssembly.Pages
 			};
 			Employees = new List<Employee> { e1, e2 };
 
-			Employees = await HttpClient.GetFromJsonAsync<List<Employee>>("employee");
+			Employees = await EmployeeDataService.GetEmployees();
 		}
 	}
 }

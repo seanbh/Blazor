@@ -1,3 +1,4 @@
+using BlazorWebAssembly.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +18,11 @@ namespace BlazorWebAssembly
 			var builder = WebAssemblyHostBuilder.CreateDefault(args);
 			builder.RootComponents.Add<App>("#app");
 
-			builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:44380/api") });
+			//this works in webassembly only
+			//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:44380/api") });
+
+			//this works in webassembly and server blazor
+			builder.Services.AddHttpClient<IEmployeeDataService, EmployeeDataService>(client => client.BaseAddress = new Uri("http://localhost:44380/api"));
 
 			await builder.Build().RunAsync();
 		}

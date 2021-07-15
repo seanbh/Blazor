@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BlazorWebAssembly.Services
 {
-	public class EmployeeDataService
+	public class EmployeeDataService : IEmployeeDataService
 	{
 		private readonly HttpClient httpClient;
 
