@@ -21,8 +21,4 @@
     <ProjectReference Include="..\Blazor.Domain\Blazor.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

@@ -37,7 +37,9 @@ namespace Blazor.API
 
 			services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppDb")));
 
-
+			services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+			services.AddScoped<ICountryRepository, CountryRepository>();
+			services.AddScoped<IJobCategoryRepository, JobCategoryRepository>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
