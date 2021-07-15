@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWebAssembly", "BlazorWebAssembly\BlazorWebAssembly.csproj", "{9550CA1D-C291-45F4-93AB-E7714CF6B356}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServer", "BlazorServer\BlazorServer.csproj", "{B9AE3F2C-809C-44B6-BB85-673F57926D5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerExample", "BlazorServer\BlazorServerExample.csproj", "{B9AE3F2C-809C-44B6-BB85-673F57926D5E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.Domain", "Blazor.Domain\Blazor.Domain.csproj", "{D7FE2FCA-BBD4-435E-8D42-A5D4E353275A}"
 EndProject

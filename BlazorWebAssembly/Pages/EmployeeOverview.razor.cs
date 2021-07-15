@@ -3,12 +3,18 @@ using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 namespace BlazorWebAssembly.Pages
 {
 	public partial class EmployeeOverview : ComponentBase
 	{
+		[Inject]
+		public HttpClient HttpClient { get; set; }
+
+
 		protected override Task OnInitializedAsync()
 		{
 
@@ -57,7 +63,7 @@ namespace BlazorWebAssembly.Pages
 			};
 		}
 
-		private void InitializeEmployees()
+		private async Task InitializeEmployees()
 		{
 			var e1 = new Employee
 			{
@@ -101,6 +107,8 @@ namespace BlazorWebAssembly.Pages
 				JoinedDate = new DateTime(2017, 12, 24)
 			};
 			Employees = new List<Employee> { e1, e2 };
+
+			Employees = await HttpClient.GetFromJsonAsync<List<Employee>>("employee");
 		}
 	}
 }
