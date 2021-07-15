@@ -19,10 +19,10 @@ namespace BlazorWebAssembly
 			builder.RootComponents.Add<App>("#app");
 
 			//this works in webassembly only
-			//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("http://localhost:44380/api") });
+			//builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:44380/") });
 
 			//this works in webassembly and server blazor
-			builder.Services.AddHttpClient<IEmployeeDataService, EmployeeDataService>(client => client.BaseAddress = new Uri("http://localhost:44380/api"));
+			builder.Services.AddHttpClient<IEmployeeDataService, EmployeeDataService>(client => client.BaseAddress = new Uri("https://localhost:44380/"));
 
 			await builder.Build().RunAsync();
 		}

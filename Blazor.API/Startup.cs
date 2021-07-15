@@ -40,6 +40,8 @@ namespace Blazor.API
 			services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 			services.AddScoped<ICountryRepository, CountryRepository>();
 			services.AddScoped<IJobCategoryRepository, JobCategoryRepository>();
+
+			services.AddCors(options => options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,6 +59,8 @@ namespace Blazor.API
 			app.UseRouting();
 
 			app.UseAuthorization();
+
+			app.UseCors("Open");
 
 			app.UseEndpoints(endpoints =>
 			{
